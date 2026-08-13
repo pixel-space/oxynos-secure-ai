@@ -1,57 +1,66 @@
-import { Reveal } from "./Reveal";
+import heroBg from "@/assets/oxynos-hero-bg.png.asset.json";
 
 export function Hero() {
   return (
-    <section className="flex min-h-screen items-center border-b border-border pt-16">
-      <div className="mx-auto w-full max-w-6xl px-6 py-24">
-        <Reveal variant="unfold">
-          <p className="mono-label text-foreground/60">
-            Local-first · BYOK · Desktop
-          </p>
-        </Reveal>
+    <section className="relative flex min-h-screen w-full flex-col overflow-hidden bg-black text-white selection:bg-neutral-800">
+      <img
+        src={heroBg.url}
+        alt="Torn paper revealing the Oxynos wordmark"
+        decoding="async"
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none object-cover object-center"
+      />
 
-        <Reveal variant="tear" delay={120}>
-          <h1 className="mt-8 max-w-[20ch] text-[clamp(2.5rem,7vw,5.5rem)] font-bold">
-            Oxynos Desktop. Built for the business that has to do more with less.
-          </h1>
-        </Reveal>
+      <div className="relative z-10 flex min-h-screen flex-col justify-end">
+        <div className="flex flex-1 flex-col items-center justify-end px-4 pb-16 pt-40 text-center sm:pb-24 sm:pt-52 md:pb-28 lg:pb-32">
+          <div className="mx-auto flex w-full max-w-5xl flex-col items-center">
+            <h1 className="w-full select-none text-[20px] font-normal leading-[1.3] tracking-tight sm:text-[30px] md:text-[38px] lg:text-[44px]">
+              <span className="text-subheadline mb-2 block sm:mb-2.5">
+                The All-in-One Infrastructure Layer,
+              </span>
+              <span className="text-subheadline flex flex-wrap items-center justify-center gap-x-2 gap-y-2 sm:gap-x-3.5">
+                <span className="font-normal">Which Gives You An Unfair</span>
+                <span className="text-advantage-bold relative inline-block px-1 font-bold">
+                  Advantage.
+                  <svg
+                    className="swoop-shadow pointer-events-none absolute -bottom-3 left-0 h-4 w-full sm:-bottom-3.5 sm:h-5"
+                    viewBox="0 0 220 28"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M 6 12 C 70 25, 150 25, 214 10"
+                      stroke="rgba(255, 255, 255, 0.95)"
+                      strokeWidth="3.5"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M 12 15 C 75 27, 145 27, 208 13"
+                      stroke="rgba(255, 255, 255, 0.75)"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </h1>
 
-        <Reveal variant="unfold" delay={320}>
-          <p className="mt-10 max-w-2xl text-lg text-foreground/70 md:text-xl">
-            The AI operations layer that never leaves your machine — plug in any
-            model, run fully offline, and get enterprise-grade tooling at startup
-            price.
-          </p>
-        </Reveal>
-
-        <Reveal variant="unfold" delay={460}>
-          <div className="mt-12">
-            <a
-              href="#early-access"
-              className="inline-flex items-center gap-3 bg-primary px-8 py-4 font-display text-sm font-semibold text-primary-foreground transition-opacity ease-out hover:opacity-85"
-            >
-              Claim Early Access
-              <span aria-hidden="true">→</span>
-            </a>
+            <div className="mt-8 flex items-center justify-center gap-3 sm:mt-12 sm:gap-5">
+              <a
+                href="#early-access"
+                className="cursor-pointer rounded-[12px] border border-neutral-200/80 bg-white px-5 py-2.5 text-[13px] font-semibold text-black shadow-[0_2px_10px_rgba(0,0,0,0.2)] transition-all hover:bg-neutral-100 sm:rounded-[14px] sm:px-8 sm:py-3.5 sm:text-[15px]"
+              >
+                Get Started
+              </a>
+              <a
+                href="#how-it-works"
+                className="cursor-pointer rounded-[12px] border border-white/20 bg-white/10 px-5 py-2.5 text-[13px] font-medium text-white backdrop-blur-sm transition-all hover:bg-white/20 sm:rounded-[14px] sm:px-8 sm:py-3.5 sm:text-[15px]"
+              >
+                Explore Docs
+              </a>
+            </div>
           </div>
-        </Reveal>
-
-        <Reveal variant="unfold" delay={600}>
-          <dl className="mt-24 grid grid-cols-1 gap-px border border-border sm:grid-cols-3">
-            {[
-              ["Data perimeter", "Your hard drive"],
-              ["Model choice", "Any API key or Ollama"],
-              ["Air-gap mode", "Process-level cutoff"],
-            ].map(([label, value]) => (
-              <div key={label} className="border border-border p-6">
-                <dt className="mono-label text-foreground/55">{label}</dt>
-                <dd className="mt-3 font-display text-lg font-semibold">
-                  {value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
