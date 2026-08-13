@@ -13,7 +13,8 @@ export function Hero() {
       <div className="relative z-10 flex min-h-screen flex-col justify-end">
         <div className="flex flex-1 flex-col items-center justify-end px-4 pb-16 pt-40 text-center sm:pb-24 sm:pt-52 md:pb-28 lg:pb-32">
           <div className="mx-auto flex w-full max-w-5xl flex-col items-center">
-            <h1 className="w-full select-none text-[20px] font-normal leading-[1.3] tracking-tight sm:text-[30px] md:text-[38px] lg:text-[44px]">
+            <h1 style={{ fontFamily: "'Plus Jakarta Sans', Inter, sans-serif" }}
+              className="w-full select-none text-[20px] font-normal leading-[1.3] tracking-tight sm:text-[30px] md:text-[38px] lg:text-[44px]">
               <span className="text-subheadline mb-2 block sm:mb-2.5">
                 The All-in-One Infrastructure Layer,
               </span>
