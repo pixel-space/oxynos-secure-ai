@@ -7,6 +7,8 @@ export function Hero() {
         src={heroBg.url}
         alt="Torn paper revealing the Oxynos wordmark"
         decoding="async"
+        loading="eager"
+        fetchPriority="high"
         className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none object-cover object-center"
       />
 
