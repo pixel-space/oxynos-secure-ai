@@ -43,13 +43,16 @@ export function Reveal({
   const { ref, open } = useReveal<HTMLElement>();
   const Tag = as as "div";
 
+  // The observed wrapper is never clipped — clipping the observed element
+  // itself shrinks its intersection rect and the observer never fires.
   return (
-    <Tag
-      ref={ref as never}
-      className={`${variant} ${open ? "is-open" : ""} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
+    <Tag ref={ref as never} className={className}>
+      <div
+        className={`${variant} ${open ? "is-open" : ""} h-full`}
+        style={{ transitionDelay: `${delay}ms` }}
+      >
+        {children}
+      </div>
     </Tag>
   );
 }
