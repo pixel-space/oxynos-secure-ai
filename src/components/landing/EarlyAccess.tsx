@@ -2,12 +2,14 @@ import { useEffect, useMemo, useState } from "react";
 import { Reveal } from "./Reveal";
 
 function useCountdown(target: number) {
-  const [now, setNow] = useState(() => Date.now());
+  // Starts at null so server and first client render match exactly.
+  const [now, setNow] = useState<number | null>(null);
   useEffect(() => {
+    setNow(Date.now());
     const id = window.setInterval(() => setNow(Date.now()), 1000);
     return () => window.clearInterval(id);
   }, []);
-  const left = Math.max(0, target - now);
+  const left = now === null ? 0 : Math.max(0, target - now);
   return {
     days: Math.floor(left / 86_400_000),
     hours: Math.floor((left / 3_600_000) % 24),
